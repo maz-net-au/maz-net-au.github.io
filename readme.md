@@ -1,8 +1,8 @@
-[Page 2](/test/page2.md)
-
 # mIoT_core
 My own ESP-based smart home software
 It is very much for my own use and will be a constant work in progress.
+
+[Page 2](/test/page2.md)
 
 ## Note to developers
 Please work in feature branches off dev and send me a pull request back to dev. I'll tag stable builds off the master branch as needed.
