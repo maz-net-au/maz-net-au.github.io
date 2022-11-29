@@ -1,3 +1,5 @@
+[Page 2](/test/page2.md)
+
 # mIoT_core
 My own ESP-based smart home software
 It is very much for my own use and will be a constant work in progress.
