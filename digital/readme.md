@@ -20,30 +20,30 @@ The current digital config `_version` is **2**
 ### Example
 ```
 {
-	"_version": 2,
-	"input": [
-		{
-			"name": "button1",
-			"label": "Light Switch",
-			"webDisplay": true,
-			"pin": 16,
-			"deviceType": 2,
-			"negate": false,
-			"debounceDelayMs": 100,
-			"onEventName": "longPressTest"
-		}
-	],
-	"output": [
-		{
-			"name": "relay1",
-			"label": "Light",
-			"webDisplay":false,
-			"pin":12,
-			"deviceType":2,
-			"negate":true,
-			"isActive":false
-		}
-	]
+    "_version": 2,
+    "input": [
+        {
+            "[name](#inputname)": "button1",
+            "[label](#inputlabel)": "Light Switch",
+            "[webDisplay](#inputwebdisplay)": true,
+            "[pin](#inputpin)": 16,
+            "[deviceType](#inputdevicetype)": 2,
+            "[negate](#inputnegate)": false,
+            "[debounceDelayMs](#inputdebouncedelayms)": 100,
+            "onEventName": "longPressTest"
+        }
+    ],
+    "output": [
+        {
+            "name": "relay1",
+            "label": "Light",
+            "webDisplay":false,
+            "pin":12,
+            "deviceType":2,
+            "negate":true,
+            "isActive":false
+        }
+    ]
 }
 ```
 
