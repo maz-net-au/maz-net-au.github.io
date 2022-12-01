@@ -82,7 +82,7 @@ Used for multiple conditions in an event set.
 | Value        | Name      | Comments                                   |
 |--------------|-----------|--------------------------------------------|
 | 0 | And | &&<br>Default. All conditions must be true before the events are triggered. |
-| 1 | Or | ||<br>If any one condition is true the events are triggered. |
+| 1 | Or | \|\|<br>If any one condition is true the events are triggered. |
 
 
 ## MathOperator 
