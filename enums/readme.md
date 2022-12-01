@@ -10,6 +10,7 @@ The type of digital device.
 
 ## EventTypes
 The built in event system routes requests to sections of the firmware based on the event type. Names must be unique within any given type or the event will trigger only on the first one found. This enum is also used for SourceType in condtions and when setting variables so the comments describe 
+
 | Value        | Name      | Comments                                   |
 |--------------|-----------|--------------------------------------------|
 | 0 | None | Used as the default so that if it hasn't been specified nothing will happen. Better than triggering things randomly. |
