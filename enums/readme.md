@@ -7,41 +7,30 @@ The type of digital device.
 | 1 | Toggle | A toggle device latches into a new state and will stay there until operated on again. (e.g. a switch). Events on toggle devices will trigger on each rising AND falling edge. |
 | 2 | Momentary | A momentary device automatically resets it's state (e.g. a push button). This kind of device is permanently in one state and only momentarily changes when operated on before reverting to its previous state. Events on momentary devices will trigger only on the initial rising or falling edge and not on the immediately following state reset. |
 
-#### None = 0,
-If set, this device will effectively be ignored and no state change events will be triggered.
-
-#### Toggle = 1,
-A toggle device latches into a new state and will stay there until operated on again. (e.g. a switch). Events on toggle devices will trigger on each rising AND falling edge.
-
-#### Momentary = 2
-A momentary device automatically resets it's state (e.g. a push button). This kind of device is permanently in one state and only momentarily changes when operated on before reverting to its previous state. Events on momentary devices will trigger only on the initial rising or falling edge and not on the immediately following state reset.
-
 
 ## EventTypes
-The built in event system routes requests to sections of the firmware based on the event type. Names must be unique within any given type or the event will trigger only on the first one found.
-
-#### None = 0,
-Used as the default so that if it hasn't been specified nothing will happen. Better than triggering things randomly.
-
-#### DigitalPin = 1,
-
-#### Url = 2,
-Makes a http(s) request asynchronously and doesn't wait for a response.
-
-#### RGB = 3,
-Routed to the serial LED system.
-
-#### Timer = 4,
-For starting and stopping times.
-
-#### AnalogPin = 5,
-
-#### EventSet = 6,
-Triggers another set of events. Allows complicated 
-
-#### Variable = 7,
-#### PWMLED = 8,
-#### Functions = 9,
+The built in event system routes requests to sections of the firmware based on the event type. Names must be unique within any given type or the event will trigger only on the first one found. This enum is also used for SourceType in condtions and when setting variables so the comments describe 
+| Value        | Name      | Comments                                   |
+|--------------|-----------|--------------------------------------------|
+| 0 | None | Used as the default so that if it hasn't been specified nothing will happen. Better than triggering things randomly. |
+| 1 | DigitalPin | Event: Set a digital device active, inactive or toggle its current state.
+Source: Returns 1 for active and 0 for inactive. |
+| 2 | Url | Event: Requests url asynchronously and ignores the response.
+Source: Returns the body of the request response converted to an int32 synchronously. |
+| 3 | RGB | Event: Set the colour and/or pattern for a serial RGB strip LED.
+Source: Returns the nominal brightness 0 - 255. |
+| 4 | Timer | Event: Starts, stops or resets a timer.
+Source: Returns 0 -  3. 1 if enabled. 2 if in the delayed start time. 3 if running. |
+| 5 | AnalogPin | Event: Writes an output on an analog pin.
+Source: Returns the the value read from an analog pin. |
+| 6 | EventSet | Event: Triggers another set of events synchronously. 
+Source: N/A |
+| 7 | Variable | Event: Performs some (MathOperator)[#mathoperator) on the variable.
+Source: Returns the current value of the variable (int32) |
+| 8 | PWMLED | Event: Set the brightness, colour and/or pattern PWM led (can be RGBCW or just a single LED).
+Source: N/A |
+| 9 | Functions | Event: N/A
+Source: "now" time since boot in milliseconds. "rand_10" returns 0 - 9, "rand_100" returns 0 - 99. "rand_1000" returns 0 - 999. |
 
 
 ## ChannelColour 
