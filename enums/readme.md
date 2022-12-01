@@ -2,9 +2,10 @@
 The type of digital device. 
 #### None = 0,
 #### Toggle = 1,
-	A toggle device latches into a new state and will stay there until operated on again. (e.g. a switch). Events on toggle devices will trigger on each rising AND falling edge.
+A toggle device latches into a new state and will stay there until operated on again. (e.g. a switch). Events on toggle devices will trigger on each rising AND falling edge.
+
 #### Momentary = 2
-	A momentary device automatically resets it's state (e.g. a push button). This kind of device is permanently in one state and only momentarily changes when operated on before reverting to its previous state. Events on momentary devices will trigger only on the initial rising or falling edge and not on the immediately following state reset.
+A momentary device automatically resets it's state (e.g. a push button). This kind of device is permanently in one state and only momentarily changes when operated on before reverting to its previous state. Events on momentary devices will trigger only on the initial rising or falling edge and not on the immediately following state reset.
 
 ## EventTypes 
 #### None = 0,
