@@ -1,5 +1,6 @@
 ## DigitalDeviceTypes
 The type of digital device. 
+
 | Value        | Name      | Comments                                   |
 |--------------|-----------|--------------------------------------------|
 | 0 | None | Disables this device from triggering any events. |
