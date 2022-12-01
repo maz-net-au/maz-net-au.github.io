@@ -16,17 +16,18 @@ The file `/config/digital.json` is read and parsed at boot to receive input from
 
 ### Version
 The current digital config `_version` is **2**
+This version will only increment when there are breaking config changes. Generally adding a field or deleting a field without adding a replacement would be considered "backwards compatible".
 
 ### Example
 > { \
-> &nbsp;&nbsp;&nbsp;&nbsp;"_version":&nbsp;2, \
-> &nbsp;&nbsp;&nbsp;&nbsp;"input":&nbsp;[ \
+> &nbsp;&nbsp;&nbsp;&nbsp;"[_version](#_version)":&nbsp;2, \
+> &nbsp;&nbsp;&nbsp;&nbsp;"[input](#input)":&nbsp;[ \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[name](#inputname)":&nbsp;"button1", \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[label](#inputlabel)":&nbsp;"Light&nbsp;Switch", \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[webDisplay](#inputwebdisplay)":&nbsp;true, \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[pin](#inputpin)":&nbsp;16, \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[deviceType](#inputdevicetype)":&nbsp;2, \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[deviceType](#inputdevicetype)":&nbsp;[2](/enums/#digitaldevicetype), \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[negate](#inputnegate)":&nbsp;false, \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[debounceDelayMs](#inputdebouncedelayms)":&nbsp;100, \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"onEventName":&nbsp;"longPressTest" \
@@ -60,31 +61,36 @@ A digital device that sends data INTO the system is described here (buttons, swi
 * Default: []
 * Required: no
 
-##### input.name
-The internal name used to refer to this device in configurations and APIs. Must be unique and I strongly recommend making it reasonable short and basic alphanumeric only.
+#### input.name
+The internal name used to refer to this device in configurations and APIs. Must be unique within this config file and I strongly recommend making it reasonably short and basic alphanumeric only.
 * Type: string
 * Value: [a-zA-Z0-9_-]{1,20}
 * Default: ""
 * Required: yes
 
-##### input.label
+#### input.label
 The name shown in the web UI to describe this device when webDisplay is true. (e.g. "Light switch"). Don't go too crazy with special characters or length.
 * Type: string
 * Value: .*
 * Default: ""
 * Required: no
 
-##### input.webDisplay
+#### input.webDisplay
 If true, a control is rendered for this device in the web UI. It will be shown with a Toggle button.
 * Type: boolean
 * Default: false
 * Required: no
 
-##### input.pin
+#### input.pin
 The GPIO pin number that the digital device is connected to. This can often be different to the number printed on the hobby board so you might need to check your datasheet. This goes into the digitalRead(<pin) call within the loop()
 * Type: integer
 * Range: 0-255
 * Default: -1
 * Required: yes
 
-##### input.deviceType
+#### input.deviceType
+The type of the device. See: [DigitalDeviceType](/enums/#digitaldevicetype) for more info.
+* Type: enum
+* Default: 0 (None)
+* Required: yes
+
