@@ -14,19 +14,17 @@ The built in event system routes requests to sections of the firmware based on t
 | Value        | Name      | Comments                                   |
 |--------------|-----------|--------------------------------------------|
 | 0 | None | Used as the default so that if it hasn't been specified nothing will happen. Better than triggering things randomly. |
-| 1 | DigitalPin | Event: Set a digital device active, inactive or toggle its current state.
+| 1 | DigitalPin | Event: Set a digital device active, inactive or toggle its current state. \
 Source: Returns 1 for active and 0 for inactive. |
-| 2 | Url | Event: Requests url asynchronously and ignores the response.
-Source: Returns the body of the request response converted to an int32 synchronously. |
-| 3 | RGB | Event: Set the colour and/or pattern for a serial RGB strip LED.
-Source: Returns the nominal brightness 0 - 255. |
+| 2 | Url | Event: Requests url asynchronously and ignores the response. Source: Returns the body of the request response converted to an int32 synchronously. |
+| 3 | RGB | Event: Set the colour and/or pattern for a serial RGB strip LED.<br>Source: Returns the nominal brightness 0 - 255. |
 | 4 | Timer | Event: Starts, stops or resets a timer.
 Source: Returns 0 -  3. 1 if enabled. 2 if in the delayed start time. 3 if running. |
 | 5 | AnalogPin | Event: Writes an output on an analog pin.
 Source: Returns the the value read from an analog pin. |
 | 6 | EventSet | Event: Triggers another set of events synchronously. 
 Source: N/A |
-| 7 | Variable | Event: Performs some (MathOperator)[#mathoperator) on the variable.
+| 7 | Variable | Event: Performs some [MathOperator](#mathoperator) on the variable.
 Source: Returns the current value of the variable (int32) |
 | 8 | PWMLED | Event: Set the brightness, colour and/or pattern PWM led (can be RGBCW or just a single LED).
 Source: N/A |
