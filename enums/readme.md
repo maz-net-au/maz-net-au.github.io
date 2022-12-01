@@ -95,8 +95,8 @@ Operations that can be applied to a variable and a specified value.
 | 2 | Equals | =<br>Sets the variable to the value. |
 | 3 | Plus | + |
 | 4 | Minus | - |
-| 5 | Multiply | *<br>Be careful of int32 [overflow](#overflowtypes). |
-| 6 | Divide | \<br>Integer division |
+| 5 | Multiply | \*<br>Be careful of int32 [overflow](#overflowtypes). |
+| 6 | Divide | \\<br>Integer division |
 | 7 | Modulus | % |
 
 
