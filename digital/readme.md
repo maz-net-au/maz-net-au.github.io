@@ -34,7 +34,7 @@ This version will only increment when there are breaking config changes. General
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[offEventName](#inputoffeventname)":&nbsp;"" \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} \
 > &nbsp;&nbsp;&nbsp;&nbsp;], \
-> &nbsp;&nbsp;&nbsp;&nbsp;"output":&nbsp;[ \
+> &nbsp;&nbsp;&nbsp;&nbsp;"[output](#output)":&nbsp;[ \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[name](#outputname)":&nbsp;"relay1", \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[label](#outputlabel)":&nbsp;"Light", \
