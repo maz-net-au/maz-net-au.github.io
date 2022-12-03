@@ -30,7 +30,8 @@ This version will only increment when there are breaking config changes. General
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[deviceType](#inputdevicetype)":&nbsp;[2](/enums/#digitaldevicetype), \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[negate](#inputnegate)":&nbsp;false, \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[debounceDelayMs](#inputdebouncedelayms)":&nbsp;100, \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"onEventName":&nbsp;"longPressTest" \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[onEventName](#inputoneventname)":&nbsp;"longPressTest" \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[offEventName](#inputoffeventname)":&nbsp;"" \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} \
 > &nbsp;&nbsp;&nbsp;&nbsp;], \
 > &nbsp;&nbsp;&nbsp;&nbsp;"output":&nbsp;[ \
