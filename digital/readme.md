@@ -35,13 +35,13 @@ This version will only increment when there are breaking config changes. General
 > &nbsp;&nbsp;&nbsp;&nbsp;], \
 > &nbsp;&nbsp;&nbsp;&nbsp;"output":&nbsp;[ \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":&nbsp;"relay1", \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"label":&nbsp;"Light", \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"webDisplay":false, \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pin":12, \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":2, \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"negate":true, \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isActive":false \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[name](#outputname)":&nbsp;"relay1", \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[label](#outputlabel)":&nbsp;"Light", \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[webDisplay](#outputwebdisplay)":false, \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[pin](#outputpin)":12, \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[deviceType](#outputdevicetype)":[2](/enums/#digitaldevicetype), \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[negate](#outputnegate)":true, \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[isActive](#outputisactive)":false \
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} \
 > &nbsp;&nbsp;&nbsp;&nbsp;] \
 > }
@@ -57,12 +57,12 @@ This is used by the system to determine what properties to expect and for conver
 
 #### input
 A digital device that sends data INTO the system is described here (buttons, switches and some sensors).
-* Type: array<object
+* Type: array<object>
 * Default: []
 * Required: no
 
-#### input.name
 The internal name used to refer to this device in configurations and APIs. Must be unique within this config file and I strongly recommend making it reasonably short and basic alphanumeric only.
+#### input.name
 * Type: string
 * Value: [a-zA-Z0-9_-]{1,20}
 * Default: ""
@@ -76,13 +76,13 @@ The name shown in the web UI to describe this device when webDisplay is true. (e
 * Required: no
 
 #### input.webDisplay
-If true, a control is rendered for this device in the web UI. It will be shown with a Toggle button.
+If true, a control is rendered for this device in the web UI. It will be shown with a Toggle button with the label described above.
 * Type: boolean
 * Default: false
 * Required: no
 
 #### input.pin
-The GPIO pin number that the digital device is connected to. This can often be different to the number printed on the hobby board so you might need to check your datasheet. This goes into the digitalRead(<pin) call within the loop()
+The GPIO pin number that the digital device is connected to. This can often be different to the number printed on the hobby board so you might need to check your datasheet. This goes into the digitalRead(pin) call within the loop()
 * Type: integer
 * Range: 0-255
 * Default: -1
@@ -93,4 +93,83 @@ The type of the device. See: [DigitalDeviceType](/enums/#digitaldevicetype) for 
 * Type: enum
 * Default: 0 (None)
 * Required: yes
+
+#### input.negate
+If this is set to true then the device is read as active low and pulling the digital pin to ground would be read as the button being pressed etc.
+* Type: boolean
+* Default: false
+* Required: no
+
+#### input.debounceDelayMs
+How long a button state change has to be detected for before events are triggered. This is because some mechanical switches rapidly turn on and off as the metal contacts bounce against each other and you normally wouldn't want to read this as multiple button presses.
+* Type: integer
+* Range: 0 - 5000
+* Units: milliseconds
+* Default: 50
+* Required: no
+
+#### input.onEventName
+When a pin state changes from inactive to active this is the name of the event set that is executed. Digital device type is not taken into account for this event and it is always triggered based on the state change. For momentary push buttons it is recommended in most cases that you only set onEventName OR offEventName, not both. It is case sensitive.
+* Type: string
+* Value: [a-zA-Z0-9_-]{1,20}
+* Default: ""
+* Required: no
+
+#### input.onEventName
+When a pin state changes from active to inactive this is the name of the event set that is executed. Digital device type is not taken into account for this event and it is always triggered based on the state change. For momentary push buttons it is recommended in most cases that you only set onEventName OR offEventName, not both. It is case sensitive.
+* Type: string
+* Value: [a-zA-Z0-9_-]{1,20}
+* Default: ""
+* Required: no
+
+### output
+A digital device that receives a digital signal FROM the system is described here (relays, mosfets, sometimes LEDs).
+* Type: array<object>
+* Default: []
+* Required: no
+
+#### output.name
+The internal name used to refer to this device in configurations and APIs. Must be unique within this config file and I strongly recommend making it reasonably short and basic alphanumeric only.
+* Type: string
+* Value: [a-zA-Z0-9_-]{1,20}
+* Default: ""
+* Required: yes
+
+#### output.label
+The name shown in the web UI to describe this device when webDisplay is true. (e.g. "Light"). Don't go too crazy with special characters or length.
+* Type: string
+* Value: .*
+* Default: ""
+* Required: no
+
+#### output.pin
+The GPIO pin number that the digital device is connected to. This can often be different to the number printed on the hobby board so you might need to check your datasheet. This goes into the digitalWrite(pin, value) call within the loop()
+* Type: integer
+* Range: 0-255
+* Default: -1
+* Required: yes
+
+#### output.deviceType
+The type of the device. See: [DigitalDeviceType](/enums/#digitaldevicetype) for more info.
+* Type: enum
+* Default: 0 (None)
+* Required: yes
+
+#### output.negate
+If this is set to true then the device is written as active low and turning it "on" would pull the pin to ground.
+* Type: boolean
+* Default: false
+* Required: no
+
+#### output.webDisplay
+If true, a control is rendered for this device in the web UI. It will be shown with two buttons which are "on" and "off" with the label described above. Pressing the "on" button will set the pin high or low, depending on the value of the negate field.
+* Type: boolean
+* Default: false
+* Required: no
+
+#### output.isActive
+If this is set to true, the device is turned "on" when the board boots. Whether this sets high or low depends on the value of the negate field.
+* Type: boolean
+* Default: false
+* Required: no
 

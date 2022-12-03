@@ -1,13 +1,3 @@
-## DigitalDeviceTypes
-The type of digital device. 
-
-| Value        | Name      | Comments                                   |
-|--------------|-----------|--------------------------------------------|
-| 0 | None | Disables this device from triggering any events. |
-| 1 | Toggle | A toggle device latches into a new state and will stay there until operated on again. (e.g. a switch). Events on toggle devices will trigger on each rising AND falling edge. |
-| 2 | Momentary | A momentary device automatically resets it's state (e.g. a push button). This kind of device is permanently in one state and only momentarily changes when operated on before reverting to its previous state. Events on momentary devices will trigger only on the initial rising or falling edge and not on the immediately following state reset. |
-
-
 ## EventTypes
 The built in event system routes requests to sections of the firmware based on the event type. Names must be unique within any given type or the event will trigger only on the first one found. This enum is also used for SourceType in condtions and when setting variables so the comments describe 
 
@@ -23,6 +13,54 @@ The built in event system routes requests to sections of the firmware based on t
 | 7 | Variable | Event: Performs some [MathOperator](#mathoperator) on the variable.<br>Source: Returns the current value of the variable (int32) |
 | 8 | PWMLED | Event: Set the brightness, colour and/or pattern PWM led (can be RGBWCO or just a single LED).<br>Source: N/A |
 | 9 | Functions | Internal functions used to surface non-config state of the system.<br>Event: N/A<br>Source: "now" time since boot in milliseconds. "rand_10" returns 0 - 9, "rand_100" returns 0 - 99. "rand_1000" returns 0 - 999. |
+
+
+## ComparisonOperator 
+Used for conditions in events. A simple set of logical comparison operators applied to some source input and a specified value.
+
+| Value        | Name      | Comments                                   |
+|--------------|-----------|--------------------------------------------|
+| 0 | Nop | No operation. Default. Does nothing. |
+| 1 | GreaterThan | > |
+| 2 | GreaterThanOrEqual | >= |
+| 3 | EqualTo | == |
+| 4 | LessThanOrEqual | <= |
+| 5 | LessThan | < |
+| 6 | NotEqualTo | != |
+
+
+## MathOperator 
+Operations that can be applied to a variable and a specified value.
+
+| Value        | Name      | Comments                                   |
+|--------------|-----------|--------------------------------------------|
+| 0 | Nop | Default. Does nothing |
+| 1 | Delete | Deletes the variable, frees it's memory.<br> |
+| 2 | Equals | =<br>Sets the variable to the value. |
+| 3 | Plus | + |
+| 4 | Minus | - |
+| 5 | Multiply | \*<br>Be careful of int32 [overflow](#overflowtypes). |
+| 6 | Divide | \\<br>Integer division |
+| 7 | Modulus | % |
+
+
+## BooleanOperator 
+Used for multiple conditions in an event set.
+
+| Value        | Name      | Comments                                   |
+|--------------|-----------|--------------------------------------------|
+| 0 | And | &&<br>Default. All conditions must be true before the events are triggered. |
+| 1 | Or | \|\|<br>If any one condition is true the events are triggered. |
+
+
+## DigitalDeviceTypes
+The type of digital device. 
+
+| Value        | Name      | Comments                                   |
+|--------------|-----------|--------------------------------------------|
+| 0 | None | Disables this device from triggering any events. |
+| 1 | Toggle | A toggle device latches into a new state and will stay there until operated on again. (e.g. a switch). Events on toggle devices will trigger on each rising AND falling edge. |
+| 2 | Momentary | A momentary device automatically resets it's state (e.g. a push button). This kind of device is permanently in one state and only momentarily changes when operated on before reverting to its previous state. Events on momentary devices will trigger only on the initial rising or falling edge and not on the immediately following state reset. |
 
 
 ## ChannelColour 
@@ -60,44 +98,6 @@ Sets the display mode of a set of LEDs. Toggle is a transition between Off <-> A
 | 3 | Pulse | Animated. Fades a solid colour off and back again. |
 | 4 | ColourCycle | Animated. Sets all LEDs to one colour, and animates through different hues. |
 | 99 | Toggle | Transient. If Off it restores the saved pattern and colour. Otherwise sets the strip Off. | 
-
-
-## ComparisonOperator 
-Used for conditions in events. A simple set of logical comparison operators applied to some source input and a specified value.
-
-| Value        | Name      | Comments                                   |
-|--------------|-----------|--------------------------------------------|
-| 0 | Nop | No operation. Default. Does nothing. |
-| 1 | GreaterThan | > |
-| 2 | GreaterThanOrEqual | >= |
-| 3 | EqualTo | == |
-| 4 | LessThanOrEqual | <= |
-| 5 | LessThan | < |
-| 6 | NotEqualTo | != |
-
-
-## BooleanOperator 
-Used for multiple conditions in an event set.
-
-| Value        | Name      | Comments                                   |
-|--------------|-----------|--------------------------------------------|
-| 0 | And | &&<br>Default. All conditions must be true before the events are triggered. |
-| 1 | Or | \|\|<br>If any one condition is true the events are triggered. |
-
-
-## MathOperator 
-Operations that can be applied to a variable and a specified value.
-
-| Value        | Name      | Comments                                   |
-|--------------|-----------|--------------------------------------------|
-| 0 | Nop | Default. Does nothing |
-| 1 | Delete | Deletes the variable, frees it's memory.<br> |
-| 2 | Equals | =<br>Sets the variable to the value. |
-| 3 | Plus | + |
-| 4 | Minus | - |
-| 5 | Multiply | \*<br>Be careful of int32 [overflow](#overflowtypes). |
-| 6 | Divide | \\<br>Integer division |
-| 7 | Modulus | % |
 
 
 ## DisplayAs 
