@@ -116,7 +116,7 @@ When a pin state changes from inactive to active this is the name of the event s
 * Default: ""
 * Required: no
 
-#### input.onEventName
+#### input.offEventName
 When a pin state changes from active to inactive this is the name of the event set that is executed. Digital device type is not taken into account for this event and it is always triggered based on the state change. For momentary push buttons it is recommended in most cases that you only set onEventName OR offEventName, not both. It is case sensitive.
 * Type: string
 * Value: [a-zA-Z0-9_-]{1,20}
