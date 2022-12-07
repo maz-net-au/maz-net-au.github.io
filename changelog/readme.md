@@ -1,3 +1,10 @@
+# Changelog
+A history of the significant changes being made on this system. Unfortunately I forgot to put dates against them but a lot of the versions are in the git commit messages. Also, I was historically writing it in ascending order so I'd have to manually flip it around if I wanted to change that. Until then, the most recent changes are at the bottom.
+
+[Latest Release](#version-310)
+
+[Most Recent Changes](#version-320)
+
 ## Version 1.0.3:
   - First multi-device release. Bug fixes.
   - Changed the path for checking firmware to be /device/checkfw
