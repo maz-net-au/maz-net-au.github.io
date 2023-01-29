@@ -14,12 +14,12 @@ A history of the significant changes being made on this system. Unfortunately I 
   - replaced compiled init page html with a gzipped byte array in PROGMEM
   - eliminate web.json (move trustedHub into wifi.json because it lives with the local network config)
   - eliminate webVersion.txt by putting it into the script file and letting everything reference it from there. no longer shown in /api/status
-+b.1
++ b.1
   - added a filesystem format command
   - Put the debug statement behind a preprocessor define so that doing a non-debug build makes the code 2k smaller
   - fixed some website typos. now v2.0.2
   - built a tool to help with packing the website. minifies the javascript and css, and then gzips everything
-+b.2
++ b.2
   - added wifi_status function. 1 for AP mode, 2 for STA connection, 3 for both
   - Website only has one active request at a time (no spam when device is unavailable)
   - Updated ESPFSSync project to do a managed upgrade of older devices which converts their config to newer formats with some rollback support. It'll apply multiple upgrade steps if required.
