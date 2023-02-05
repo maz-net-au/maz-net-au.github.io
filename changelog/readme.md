@@ -4,6 +4,9 @@ A history of the significant changes being made on this system. Unfortunately I 
 [Latest Release](#version-310)
 
 [Most Recent Changes](#version-330)
+## Version 3.4.0
++ b.0
+  - Started adding IR module. WIP and not running yet
 
 ## Version 3.3.0
 + b.0 "focus on 8285"
