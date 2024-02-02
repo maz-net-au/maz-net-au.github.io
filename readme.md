@@ -93,7 +93,7 @@ It's important that you consistently select the same filesystem layout for a boa
     - 8M (1MB) - FS:64KB, OTA:470KB - No website support
     - 16M (2MB) - FS:1MB, OTA:512KB
     - 32M (4MB) - FS:3MB, OTA:512KB
-<details>
+</details>
 
 ## HTTP APIs
 A quick reference for APIs that can be called on the devices. Most calls return a json object that represents a the state of the device after the action is performed.
