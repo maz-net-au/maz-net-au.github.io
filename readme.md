@@ -6,15 +6,36 @@ It is very much for my own use and will be a constant work in progress.
 Please work in feature branches off dev and send me a pull request back to dev. I'll tag stable builds off the master branch as needed.
 
 ## Project Structure
-This project contains 3 separate components:
+This project contains several separate components:
 * **ESP_IoT_Core** is the main microcontroller code for ESP-based (ESP8266, ESP8285, ESP32) boards (C++)
 * **DeviceWebsite** is the command and control website deployed to each individual device (HTML, JS, CSS)
-* **ESPFSSync** is a VS2019 console app used to perform OTA functions. E.g. update the file system or firmware on a live device. (C#)
-* **IoTHome** is a VS2019 .net Core web application designed to run on an RPi3 (or better) and act as a central hub. (C#)
+* **Configs** This folder is where ESPFSSync will read and write config files from.
+* **ESPFSSync** is a VS2022 console app used to perform OTA functions. E.g. update the file system or firmware on a live device. (C#)
+* **IoTHome** is a VS2022 .net Core web application designed to run on an RPi3 (or better) and act as a central hub. (C#)
 
 
 ## Dependencies
 ### ESP_IoT_Core
+Hey! We've upgraded to PlatformIO for the much richer build system. On the upside, it means you don't really need to do anything except install VSCode, the PlatformIO extension, and pull down the repo.
+Use PlatformIO to upload to a board as you would any other arduino / esp project.
+
+Once the firmware is running on the board, you should be able to see a new WiFi access point called mIoT_##### where the 5 digit number is randomly generated. Connect to this with the default password **setup123** on your phone. Then browse to http://192.168.4.1 you should see the basic setup page where you can specify a WiFi network you want the device to join and provide the password. On reboot the device should connect to the specified network.
+
+If it is a new device, there will be no hardware configured and no website deployed.
+To start with, open the ESPFSSync tool as Administrator and type **scan** to search for devices on the local network using a broadcast,(you have to be on the same wifi network). It should give you the IP address of any devices that respond. You may need to allow port 80 inbound on your firewall to get the responses.
+- Type in the IP address of the device you just flashed to select the device.
+- On the main device menu select the first option to upload the website files.
+- Browse to the device on the same IP using your browser.
+- Go to the settings page and fill out the details.
+	- The trusted hub address needs to start with "http://" and is the only location the device will accept a firmware file from.
+- Usually I  select the fourth option to download the configs (to create the local folder named for the device ID)
+- Modify and create the config files in the local folder
+- Use option three to push the configs to the device and type "Y" to reboot it afterwards.
+
+I have configured the build system to run a list of boards by default and put the .bin files into the releases directory. From there you can use ESPFSSync to do an OTA update.
+
+<details>
+<summary>If you want to use Arduino studio, here are the old instructions</summary>
 I'm using **Arduino Studio v1.8.18** but later v1 versions should work with the same instructions. The following instructions assume you're doing the same.
 
 You'll need to add the ESP boards to Arduino Studio if you haven't already by going to preferences and adding the all the following urls to the "Additional Boards Manager URLs" (comma separated)
@@ -46,19 +67,6 @@ I've been downloading the master branch as a zip from github and using Sketch ->
 ## Building
 Opening the ESP_IoT_core.ino file in Arduino Studio with all the above dependencies installed should be all you need to do. Set up the board as below (not an exhaustive list), select the correct COM port and click the Upload button (You'll need to short IO0 to Gnd on boot to go into the bootloader before you'll be able to upload new firmware over serial).
 
-Once the firmware is running on the board, you should be able to see a new WiFi access point called mIoT_##### where the 5 digit number is randomly generated. Connect to this with the default password **setup123** on your phone. Then browse to http://192.168.4.1 you should see the basic setup page where you can specify a WiFi network you want the device to join and provide the password. On reboot the device should connect to the specified network.
-
-If it is a new device, there will be no hardware configured and no website deployed.
-To start with, open the ESPFSSync tool as Administrator and type **scan** to search for devices on the local network using a broadcast,(you have to be on the same wifi network). It should give you the IP address of any devices that respond. You may need to allow port 80 inbound on your firewall to get the responses.
-- Type in the IP address of the device you just flashed to select the device.
-- On the main device menu select the first option to upload the website files.
-- Browse to the device on the same IP using your browser.
-- Go to the settings page and fill out the details.
-	- The trusted hub address needs to start with "http://" and is the only location the device will accept a firmware file from.
-- Usually I  select the fourth option to download the configs (to create the local folder named for the device ID)
-- Modify and create the config files in the local folder
-- Use option three to push the configs to the device and type "Y" to reboot it afterwards.
-
 ## Board Setup (Tuya and some other standard modules)
 It's important that you consistently select the same filesystem layout for a board otherwise it will map incorrectly and after you update, all the files that were on the filesystem are no longer there. For this reason, I've been making notes in defines.h to remind me what to set for different boards. /api/status gives FS info and if you deploy the default website, there is a readout of the current filesystem layout at the top of the settings page on the module's website.
 
@@ -85,6 +93,7 @@ It's important that you consistently select the same filesystem layout for a boa
     - 8M (1MB) - FS:64KB, OTA:470KB - No website support
     - 16M (2MB) - FS:1MB, OTA:512KB
     - 32M (4MB) - FS:3MB, OTA:512KB
+<details>
 
 ## HTTP APIs
 A quick reference for APIs that can be called on the devices. Most calls return a json object that represents a the state of the device after the action is performed.
