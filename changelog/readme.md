@@ -3,10 +3,21 @@ A history of the significant changes being made on this system. Unfortunately I 
 
 [Latest Release](#version-310)
 
-[Most Recent Changes](#version-330)
+[Most Recent Changes](#version-340)
 ## Version 3.4.0
 + b.0
   - Started adding IR module. WIP and not running yet
++ b.1 @ 19th Jan 2024
+  - Someone finally worked out what was wrong with platformIO so I've moved to that build system.
++ b.2 @ 20th Jan 2024
+  - Testing OTA etc works from PIO
++ b.3 @ 2nd Feb 2024
+  - WiFi connections now specify AP MAC address to better control connecting to mesh networks
+  - Fixed a bug where networks were reporting the wrong rssi
+  - Created a wifi roaming system where it'll reconnect to another saved network if it has much better signal
+  - Fixed a bug where if booting was interrupted at step 1 (wifi), the next boot wouldn't correctly start its own AP
+
+**SORRY ABOUT THE LONG INTERVAL**
 
 ## Version 3.3.0
 + b.0 "focus on 8285"
