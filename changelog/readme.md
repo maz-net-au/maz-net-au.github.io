@@ -16,6 +16,17 @@ A history of the significant changes being made on this system. Unfortunately I 
   - Fixed a bug where networks were reporting the wrong rssi
   - Created a wifi roaming system where it'll reconnect to another saved network if it has much better signal
   - Fixed a bug where if booting was interrupted at step 1 (wifi), the next boot wouldn't correctly start its own AP
++ b.4 @ 3rd Feb 2024
+  - Bugfix: make the network roaming change be backwards compatible.
+  - Updated ESPFSSync to support the new structire with /releases/\[version\]/firmware.bin with the version subfolder.
+  - Fixed a bug where new versions of ESPFSSync wouldn't upgrade the firmware of a device when using the newer "firmwareFilename" json property.
++ b.5 @ 7th Feb 2024
+  - Using the preprocessor define for 'mIoT_HARDWARE_GENERATION' instead of the large case statement that I forgot to update
+  - Using the preprocessor define for 'mIoT_VERSION' as part of the firmware update check
+  - Simplified .gitignore
+  - Wrote a firmware migration component to go from 3.3.0.2 to 3.4.0.5
++ b.6 @ 8th Feb 2024
+  - Fixing a bug where animations don't resume if using pattern "Toggle" with an RGB strip
 
 **SORRY ABOUT THE LONG INTERVAL**
 

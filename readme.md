@@ -102,6 +102,7 @@ A quick reference for APIs that can be called on the devices. Most calls return 
 * GET **/api/reset** - Clear the wifi configuration (the device will revert to AP mode).
 * GET **/api/resetall** - Clear all configuration (the device will have no timers, events, or hardware configured and will revert to AP wireless mode).
 * GET **/api/rgb?pattern=**`<enums.h:LedPatterns>`**&colour=**`<#RRGGBB>` - (colour is optional) - Set the WS2812 LED strip to the selected pattern.
+* GET **/api/pwmled?name=`<pwmLedConfig:name>`pattern=**`<enums.h:LedPatterns>`**&colour=**`<#RRGGBB>` - Set color and pattern using pwmLed selected by name. (colour is optional) Set the WS2812 LED strip to the selected pattern.
 * GET **/api/digital?name=**`<digitalPinConfig:name>`**&action=**`<on|off|toggle>` - Perform the chosen action on a digital pin device selected by the name parameter
 * GET **/api/timer?name=**`<timerConfig:name>`**&action=**`<start|stop|startorreset>` - Perform the chosen action on the timer selected by name. The **startorreset** action will start the timer if it is currently stopped, or if it is already running the elapsed time with be reset to 0.
 * GET **/api/event?name=**`<eventsConfig:name>` - Trigger the events configured in the EventSet specified by name. This will still evaluate configured conditions before triggering.
