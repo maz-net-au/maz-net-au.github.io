@@ -174,3 +174,66 @@ If this is set to true, the device is turned "on" when the board boots. Whether 
 * Default: false
 * Required: no
 
+## API
+
+### Get Status
+Retrieve the current state of all digital devices.
+* **GET** `/api/status`
+* Response includes a `digital` array containing objects for each configured device:
+```json
+{
+    "digital": [
+        {
+            "name": "button1",
+            "label": "Light Switch",
+            "display": true,
+            "isActive": false,
+            "direction": "input"
+        },
+        {
+            "name": "relay1",
+            "label": "Light",
+            "display": true,
+            "isActive": true,
+            "direction": "output"
+        }
+    ]
+}
+```
+
+### Control Digital Output
+Control the state of a digital output device.
+* **GET** `/api/digital?name=<device_name>&action=<action>`
+* Parameters:
+  * name: The name of the digital device to control
+  * action: One of:
+    * on: Turn the device on (set pin high/low based on negate setting)
+    * off: Turn the device off (set pin low/high based on negate setting)
+    * toggle: Toggle between on and off states
+* Example: `/api/digital?name=relay1&action=on`
+
+## Status
+The digital status is returned as part of any API response that includes device state. Each digital device object in the array contains:
+
+* **name**: The configured name of the device
+* **label**: The display label for the device
+* **display**: Whether this device should be shown in the web UI
+* **isActive**: Whether the device is currently active (on)
+* **direction**: Whether this is an "input" or "output" device
+
+### Input Device States
+For input devices (buttons, switches, etc.):
+* **isActive**: true when the input is detected as active (button pressed, switch on)
+* The active state is determined by:
+  1. Reading the GPIO pin value
+  2. Applying the negate setting if configured
+  3. Debouncing for the configured delay period
+  4. Triggering onEventName/offEventName events on state changes
+
+### Output Device States
+For output devices (relays, LEDs, etc.):
+* **isActive**: true when the output is set to its active state
+* The physical pin state is determined by:
+  1. The isActive value
+  2. The negate setting (inverts the pin state if true)
+  3. Set via GPIO pin write
