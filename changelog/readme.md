@@ -3,7 +3,21 @@ A history of the significant changes being made on this system. Unfortunately I 
 
 [Latest Release](#version-310)
 
-[Most Recent Changes](#version-340)
+[Most Recent Changes](#version-350)
+## Version 3.5.0
++ b.0 @ 14th Feb 2024
+  - Working IR implementation. Need better / longer range hardware
++ b.1 @ 1st Dec 2024
+  - Added BGR support for cheap aliexpress christmas lights
++ b.2 @ 27th Dec 2024
+  - Updated website to fix setup page and work with the new hub proxy
++ b.3 @ 2nd Jan 2025
+  - Added a rolling uptime counter to the status message for debugging reboots
+  - Show estimated boot time on the setup page (based on now() - uptime)
+  - Added reset reason to device status for debugging reboots
++ b.4 @ 8th Jan 2025
+  - Allow collection and request of debug logs remotely with /api/logs (when mIoT_REMOTEDEBUG is defined)
+
 ## Version 3.4.0
 + b.0
   - Started adding IR module. WIP and not running yet

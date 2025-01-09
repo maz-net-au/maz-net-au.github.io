@@ -1,6 +1,7 @@
 # mIoT_core
 My own ESP-based smart home software
 It is very much for my own use and will be a constant work in progress.	
+You can see current progress by reading the [Changelog](/changelog/readme.md)
 
 ## Note to developers
 Please work in feature branches off dev and send me a pull request back to dev. I'll tag stable builds off the master branch as needed.
@@ -13,6 +14,17 @@ This project contains several separate components:
 * **ESPFSSync** is a VS2022 console app used to perform OTA functions. E.g. update the file system or firmware on a live device. (C#)
 * **IoTHome** is a VS2022 .net Core web application designed to run on an RPi3 (or better) and act as a central hub. (C#)
 
+## Component Documentation
+### Modules
+* [Analog](/analog/readme.md) - Documentation for analog input/output functionality, including sensors and variable voltage control
+* [Digital](/digital/readme.md) - Documentation for digital input/output functionality, including buttons, switches, and relays
+* [PWM LED](/pwm/readme.md) - Documentation for PWM-based LED control with support for RGBWCO channels
+* [RGB LED](/rgb/readme.md) - Documentation for addressable LED strip control with patterns and animations
+* [Timers](/timer/readme.md) - Documentation for timer functionality with intervals and event triggering
+* [Variables](/variables/readme.md) - Documentation for variable system with persistence and math operations
+## Shared
+* [Enums](/enums/readme.md) - Enumeration types used throughout the system
+* [Structs](/structs/readme.md) - Data structures used in configuration files
 
 ## Dependencies
 ### ESP_IoT_Core
@@ -98,6 +110,7 @@ It's important that you consistently select the same filesystem layout for a boa
 ## HTTP APIs
 A quick reference for APIs that can be called on the devices. Most calls return a json object that represents a the state of the device after the action is performed.
 * GET **/api/status** - Explicitly retrieve the current state of the device as a json object without performing any action.
+* GET **/api/logs** - If remote debugging is enabled in your build, this will retrieve up to the last 100 debug log items as an array of strings.
 * GET **/api/reboot** - Reboot the device.
 * GET **/api/reset** - Clear the wifi configuration (the device will revert to AP mode).
 * GET **/api/resetall** - Clear all configuration (the device will have no timers, events, or hardware configured and will revert to AP wireless mode).
@@ -151,6 +164,15 @@ Minus = 4 \
 Multiply = 5 \
 Divide = 6 \
 Modulus = 7
+
+### Reset Reasons
+0 Power reboot
+1 Hardware WDT reset
+2 Fatal exception
+3 Software watchdog reset
+4 Software reset
+5 Deep-sleep
+6 Hardware reset
 
 ## Things to document better
 * defines.h: contains a changelog and some preprocessor defines that change the build of the MCU code.
