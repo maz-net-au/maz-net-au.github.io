@@ -166,13 +166,13 @@ Divide = 6 \
 Modulus = 7
 
 ### Reset Reasons
-0 Power reboot
-1 Hardware WDT reset
-2 Fatal exception
-3 Software watchdog reset
-4 Software reset
-5 Deep-sleep
-6 Hardware reset
+0 Power reboot \
+1 Hardware WDT reset \
+2 Fatal exception \
+3 Software watchdog reset \
+4 Software reset \
+5 Deep-sleep \
+6 Hardware reset \
 
 ## Things to document better
 * defines.h: contains a changelog and some preprocessor defines that change the build of the MCU code.
