@@ -172,7 +172,7 @@ Modulus = 7
 3 Software watchdog reset \
 4 Software reset \
 5 Deep-sleep \
-6 Hardware reset \
+6 Hardware reset
 
 ## Things to document better
 * defines.h: contains a changelog and some preprocessor defines that change the build of the MCU code.
