@@ -17,6 +17,8 @@ A history of the significant changes being made on this system. Unfortunately I 
   - Added reset reason to device status for debugging reboots
 + b.4 @ 8th Jan 2025
   - Allow collection and request of debug logs remotely with /api/logs (when mIoT_REMOTEDEBUG is defined)
++ b.5 @ 12th Jan 2025
+  - Separated serial and remote logging. Renamed mIoT_DEBUG to mIoT_SERIALDEBUG
 
 ## Version 3.4.0
 + b.0
