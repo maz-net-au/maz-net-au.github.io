@@ -121,20 +121,24 @@ Central hub web application (.NET Core)
    - Validate OTA updates
 
 ## Debugging
+1. **Local Debugging**
+   - Enable `mIoT_SERIALDEBUG` in build
+   - Access logs via serial
+   - Monitor device status
 
-1. **Remote Debugging**
+2. **Remote Debugging**
    - Enable `mIoT_REMOTEDEBUG` in build
    - Access logs via `/api/logs`
    - Monitor device status
 
-2. **Common Issues**
+3. **Common Issues**
    - Filesystem corruption
    - Network connectivity
    - Memory limitations
    - Hardware compatibility
 
-3. **Tools**
+4. **Tools**
    - Serial monitor
    - ESPFSSync diagnostics
    - Web interface debugging
-   - Network analyzers
+   - Network scans

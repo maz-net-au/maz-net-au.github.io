@@ -75,7 +75,7 @@ GET /api/digital?name=<name>&action=<action>
 ```
 Control digital pins
 - name: Pin configuration name
-- action: on|off|toggle
+- action: on / off / toggle
 
 ### Timer Control
 ```http
@@ -83,7 +83,7 @@ GET /api/timer?name=<name>&action=<action>
 ```
 Control timers
 - name: Timer configuration name
-- action: start|stop|startorreset
+- action: start / stop / startorreset
 
 ### Event Control
 ```http
