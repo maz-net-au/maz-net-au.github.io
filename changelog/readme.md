@@ -3,7 +3,11 @@ A history of the significant changes being made on this system. Unfortunately I 
 
 [Latest Release](#version-310)
 
-[Most Recent Changes](#version-350)
+[Most Recent Changes](#version-351)
+## Version 3.5.1
++ b.0 @ 20th Jan 2025
+  - An initial working implementation to control a Mitsubishi heat pump (MSZ-AP)
+
 ## Version 3.5.0
 + b.0 @ 14th Feb 2024
   - Working IR implementation. Need better / longer range hardware
@@ -19,6 +23,9 @@ A history of the significant changes being made on this system. Unfortunately I 
   - Allow collection and request of debug logs remotely with /api/logs (when mIoT_REMOTEDEBUG is defined)
 + b.5 @ 12th Jan 2025
   - Separated serial and remote logging. Renamed mIoT_DEBUG to mIoT_SERIALDEBUG
++ b.6 @ 15th Jan 2025
+  - Attempt to plug device into AC unit
+  - Website 2.2.3 fixed a race condition that setup log tailing when remote debug was enabled
 
 ## Version 3.4.0
 + b.0
