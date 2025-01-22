@@ -11,10 +11,20 @@ ESP-based smart home software designed for customizable IoT devices and home aut
    - Connect to device AP (mIoT_#####, pw: setup123)
    - Configure at http://192.168.4.1
 
+<a href="/assets/device_initialisation.png">
+  <img src="/assets/device_initialisation.png" alt="Device Initialisation Screen" style="max-height: 400px; width: auto;">
+</a><br/>
+*The current device initialisation screen.*
+
 2. **Configuration**
    - Use ESPFSSync to upload website
+      (option 1)
    - Configure device settings
+      (use option 4 to create a local folder)
    - Push configuration files
+      (option 3)
+   - Reboot
+      (option 6)
 
 See the [Development Guide](/docs/development/readme.md) for detailed setup instructions.
 
@@ -53,22 +63,22 @@ Command and control website deployed to each device
 
 <a href="/assets/desktop_main_screen_ac.png">
   <img src="/assets/desktop_main_screen_ac.png" alt="Desktop Interface" style="max-height: 400px; width: auto;">
-</a>
+</a><br/>
 *Desktop view showing AC control and device status*
 
 <a href="/assets/mobile_view_rgb.png">
   <img src="/assets/mobile_view_rgb.png" alt="Mobile Interface" style="max-height: 400px; width: auto;">
-</a>
+</a><br/>
 *Mobile view showing RGB LED control*
 
 <a href="/assets/settings_screen.png">
   <img src="/assets/settings_screen.png" alt="Configuration Interface" style="max-height: 400px; width: auto;">
-</a>
+</a><br/>
 *Device configuration interface*
 
 
 ### Configs
-Configuration file storage and management
+Json based configuration files for device management
 - Device settings
 - Network configuration
 - Hardware setup
@@ -83,8 +93,8 @@ OTA functionality console application (C#)
 
 <a href="/assets/sync_tool.png">
   <img src="/assets/sync_tool.png" alt="ESPFSSync Tool" style="max-height: 400px; width: auto;">
-</a>
-*ESPFSSync tool for file system and configuration management*
+</a><br/>
+*ESPFSSync tool for firmware, file system and configuration management*
 
 ### IoTHome
 Central hub web application (.NET Core)
@@ -93,6 +103,11 @@ Central hub web application (.NET Core)
 - Status monitoring
 - Event coordination
 
+<a href="/assets/WIP_dashboard_screen.png">
+  <img src="/assets/WIP_dashboard_screen.png" alt="Hub dashboard" style="max-height: 400px; width: auto;">
+</a><br/>
+*Work in progress: Hub dashboard for easily controlling many devices.*
+
 ## Contributing
 * Work in feature branches off `dev`
 * Submit pull requests to `dev`
@@ -100,7 +115,7 @@ Central hub web application (.NET Core)
 
 <a href="/assets/dev_environment.png">
   <img src="/assets/dev_environment.png" alt="Development Environment" style="max-height: 400px; width: auto;">
-</a>
+</a><br/>
 *VSCode with PlatformIO setup for mIoT development*
 
 See the [Development Guide](/docs/development/readme.md) for detailed contribution guidelines.
