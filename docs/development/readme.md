@@ -8,7 +8,15 @@
 3. Open project in VSCode
 4. Use PlatformIO to upload to board
 
+<a href="/assets/dev_environment.png">
+  <img src="/assets/dev_environment.png" alt="Development Environment" style="max-height: 400px; width: auto;">
+</a><br/>
+*VSCode with PlatformIO setup for mIoT development*
+
 ### Arduino Studio (Alternative)
+
+<details>
+
 If you prefer Arduino Studio v1.8.18+:
 
 1. **Board Manager URLs**
@@ -38,6 +46,7 @@ If you prefer Arduino Studio v1.8.18+:
    * [ESPAsyncTCP](https://github.com/me-no-dev/ESPAsyncTCP)
    
    Download as ZIP and use Sketch -> Include Library -> Add ZIP library
+</details>
 
 ## Project Structure
 
@@ -75,31 +84,6 @@ Central hub web application (.NET Core)
 - Automation control
 - Status monitoring
 - Event coordination
-
-## Initial Device Setup
-
-1. **Flash Firmware**
-   - Upload firmware via PlatformIO or Arduino
-   - Device creates WiFi AP named mIoT_#####
-   - Default password: setup123
-
-2. **Network Configuration**
-   - Connect to device AP
-   - Browse to http://192.168.4.1
-   - Configure WiFi network settings
-
-3. **Device Configuration**
-   - Run ESPFSSync as Administrator
-   - Use 'scan' to find devices
-   - Select device by IP
-   - Upload website files
-   - Configure device settings
-
-4. **Configuration Management**
-   - Download initial configs
-   - Modify as needed
-   - Push configs back to device
-   - Reboot to apply changes
 
 ## Contributing
 

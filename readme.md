@@ -113,11 +113,6 @@ Central hub web application (.NET Core)
 * Submit pull requests to `dev`
 * Stable releases tagged from `master`
 
-<a href="/assets/dev_environment.png">
-  <img src="/assets/dev_environment.png" alt="Development Environment" style="max-height: 400px; width: auto;">
-</a><br/>
-*VSCode with PlatformIO setup for mIoT development*
-
 See the [Development Guide](/docs/development/readme.md) for detailed contribution guidelines.
 
 ## License
