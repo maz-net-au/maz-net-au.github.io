@@ -21,6 +21,7 @@ See the [Development Guide](/docs/development/readme.md) for detailed setup inst
 ## Documentation
 
 ### Core Features
+* [AC Control](/ac/readme.md) - Mitsubishi heat pump integration and control
 * [Analog](/analog/readme.md) - Sensors and variable voltage control
 * [Digital](/digital/readme.md) - Buttons, switches, and relays
 * [PWM LED](/pwm/readme.md) - LED brightness with RGBWCO support
@@ -50,6 +51,22 @@ Command and control website deployed to each device
 - Device configuration and control
 - Status monitoring
 
+<a href="/assets/desktop_main_screen_ac.png">
+  <img src="/assets/desktop_main_screen_ac.png" alt="Desktop Interface" style="max-height: 400px; width: auto;">
+</a>
+*Desktop view showing AC control and device status*
+
+<a href="/assets/mobile_view_rgb.png">
+  <img src="/assets/mobile_view_rgb.png" alt="Mobile Interface" style="max-height: 400px; width: auto;">
+</a>
+*Mobile view showing RGB LED control*
+
+<a href="/assets/settings_screen.png">
+  <img src="/assets/settings_screen.png" alt="Configuration Interface" style="max-height: 400px; width: auto;">
+</a>
+*Device configuration interface*
+
+
 ### Configs
 Configuration file storage and management
 - Device settings
@@ -64,6 +81,11 @@ OTA functionality console application (C#)
 - Configuration management
 - Device discovery
 
+<a href="/assets/sync_tool.png">
+  <img src="/assets/sync_tool.png" alt="ESPFSSync Tool" style="max-height: 400px; width: auto;">
+</a>
+*ESPFSSync tool for file system and configuration management*
+
 ### IoTHome
 Central hub web application (.NET Core)
 - Device management
@@ -75,6 +97,11 @@ Central hub web application (.NET Core)
 * Work in feature branches off `dev`
 * Submit pull requests to `dev`
 * Stable releases tagged from `master`
+
+<a href="/assets/dev_environment.png">
+  <img src="/assets/dev_environment.png" alt="Development Environment" style="max-height: 400px; width: auto;">
+</a>
+*VSCode with PlatformIO setup for mIoT development*
 
 See the [Development Guide](/docs/development/readme.md) for detailed contribution guidelines.
 

@@ -7,6 +7,9 @@ A history of the significant changes being made on this system. Unfortunately I 
 ## Version 3.5.1
 + b.0 @ 20th Jan 2025
   - An initial working implementation to control a Mitsubishi heat pump (MSZ-AP)
++ b.1 @ 22nd Jan 2025
+  - Fixing copy/paste bugs in the web API for AC
+  - updated website to v2.3.0 to contain AC controls
 
 ## Version 3.5.0
 + b.0 @ 14th Feb 2024

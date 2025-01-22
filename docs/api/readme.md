@@ -101,6 +101,27 @@ Modify variables
 - op: MathOperator enum value
 - value: Integer value
 
+### AC Control
+```http
+GET /api/ac?target=<target>&action=<action>&value=<value>
+```
+Control heat pump with single parameter
+- target: power/mode/temp/fan/swingV/swingH or preset name
+- action: update/preset/off
+- value: Setting value (for update action)
+
+Alternative multi-parameter control:
+```http
+GET /api/ac?power=<bool>&mode=<mode>&temperature=<temp>&fan=<speed>&verticalVane=<pos>&horizontalVane=<pos>
+```
+Update multiple settings at once
+- power: true/false
+- mode: 1 (HEAT) / 2 (DRY) / 3 (COOL) / 7 (FAN) / 8 (AUTO)
+- temperature: 16-31°C
+- fan: 0 (AUTO) / 1 (QUIET) / 2 (LOW) / 3 (MED) / 5 (HIGH) / 6 (MAX)
+- verticalVane: 0 (AUTO) / 1-5 (Position) / 7 (SWING)
+- horizontalVane: 0 (AUTO) / 1-5 (Position) / 8 (WIDE) / 12 (SWING)
+
 ### IR Control
 ```http
 GET /api/ir?capture=<name>
@@ -203,7 +224,9 @@ Most APIs return a JSON object representing device state:
         "rgb": {...},
         "timers": [...],
         "variables": [...],
-        "ir": {...}
+        "ir": {...},
+        "ac": {...}
+        }
     }
 }
 ```
@@ -220,6 +243,52 @@ Timer = 4
 AnalogPin = 5
 EventSet = 6
 Variable = 7
+PWMLED = 8
+Functions = 9
+IR = 10
+AC = 11
+```
+
+### ACMode
+```cpp
+Heat = 1
+Dry = 2
+Cool = 3
+Fan = 7
+Auto = 8
+```
+
+### ACFanSpeed
+```cpp
+Auto = 0
+Quiet = 1
+Low = 2
+Medium = 3
+High = 5
+Max = 6
+```
+
+### ACSwingV
+```cpp
+Auto = 0
+Highest = 1
+High = 2
+Middle = 3
+Low = 4
+Lowest = 5
+Swing = 7
+```
+
+### ACSwingH
+```cpp
+Auto = 0
+LeftMax = 1
+Left = 2
+Middle = 3
+Right = 4
+RightMax = 5
+Wide = 8
+Swing = 12
 ```
 
 ### LedPatterns
