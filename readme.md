@@ -2,6 +2,11 @@
 
 ESP-based smart home software designed for customizable IoT devices and home automation. This project provides a flexible platform for creating and managing smart devices with a web-based control interface.
 
+<a href="/assets/desktop_main_screen_ac.png">
+  <img src="/assets/desktop_main_screen_ac.png" alt="Desktop Interface" style="max-height: 400px; width: auto;">
+</a><br/>
+*Desktop view showing AC control and device status*
+
 ## Quick Start
 
 1. **Setup**
@@ -60,11 +65,6 @@ Command and control website deployed to each device
 - HTML/JS/CSS interface
 - Device configuration and control
 - Status monitoring
-
-<a href="/assets/desktop_main_screen_ac.png">
-  <img src="/assets/desktop_main_screen_ac.png" alt="Desktop Interface" style="max-height: 400px; width: auto;">
-</a><br/>
-*Desktop view showing AC control and device status*
 
 <a href="/assets/mobile_view_rgb.png">
   <img src="/assets/mobile_view_rgb.png" alt="Mobile Interface" style="max-height: 400px; width: auto;">
