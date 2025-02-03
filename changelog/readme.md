@@ -10,6 +10,12 @@ A history of the significant changes being made on this system. Unfortunately I 
 + b.1 @ 22nd Jan 2025
   - Fixing copy/paste bugs in the web API for AC
   - updated website to v2.3.0 to contain AC controls
++ b.2 @ 1st Feb 2025
+  - Added power meter files to start working on them
+  - made the ac request a settings update after sending though changes
+  - web v2.3.1 show dirty AC state
++ b.3 @ 4th Feb 2025
+  - Delay AC settings updates until 1 sec after the last serial.write
 
 ## Version 3.5.0
 + b.0 @ 14th Feb 2024
