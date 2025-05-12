@@ -16,6 +16,11 @@ A history of the significant changes being made on this system. Unfortunately I 
   - web v2.3.1 show dirty AC state
 + b.3 @ 4th Feb 2025
   - Delay AC settings updates until 1 sec after the last serial.write
++ b.4 @ 8th Feb 2025
+  - Clean up some log messages
+  - Update debug API for digital pins (to test what is connected to what in new hardware)
+  - Reduce status messages to nothing if the feature is inactive
+  - Looped in power meter implementation behind mIoT_FEATURE_POWERMETER flag
 
 ## Version 3.5.0
 + b.0 @ 14th Feb 2024
